@@ -4,12 +4,16 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write   # ✅ allows the action to push to gh-pages branch
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
